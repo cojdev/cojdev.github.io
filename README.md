@@ -1,5 +1,6 @@
 # cojdev.github.io
 Personal Portfolio
 
-# To Do
-Loads
+## To Do
+* Add pictures
+* Add more projects

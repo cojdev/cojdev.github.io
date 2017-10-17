@@ -103,6 +103,8 @@
 	function resizeCanvas() {
 		canvas.width = window.innerWidth * pixelRatio;
 		canvas.height = window.innerHeight * pixelRatio;
+		canvas.style.width = window.innerWidth + "px";
+		canvas.style.height = window.innerHeight + "px";
 		pointFun();
 	}
 

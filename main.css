@@ -21,6 +21,11 @@ body {
     justify-content: center;
 }
 
+.container {
+    position: relative;
+    z-index: 1;
+}
+
 h1,
 h2 {
     color: #333;
@@ -76,6 +81,5 @@ p {
     bottom: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
-    background: linear-gradient(to bottom, red, transparent);
+    background: linear-gradient(to bottom, #f8f8f8, rgba(248,248,248,0));
 }

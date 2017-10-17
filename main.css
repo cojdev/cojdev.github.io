@@ -9,27 +9,39 @@ html {
 }
 
 body {
-    color: #555;
-    background: #f8f8f8;
+    color: #666;
+    background-image: linear-gradient(to bottom, #eee, #fff);
     font-family: "Work Sans", sans-serif;
     line-height: 1.5;
 	padding: 0;
     margin: 0 auto;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 h1,
 h2 {
     color: #333;
     font-weight: 300;
+    margin-bottom: 0rem;
 }
 
 a {
     color: #d23;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
 }
 
 p {
     margin: 1.5em 0;
+}
+
+.description {
+    margin-top: 0;
 }
 
 .inline-list {
@@ -42,4 +54,26 @@ p {
     display: inline;
     padding: 0;
     margin: 0;
+}
+
+.inline-list li:not(:last-child)::after {
+    content: " •";
+    color: #666;
+}
+
+.canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -2;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background: linear-gradient(to bottom, #fff, transparent);
 }

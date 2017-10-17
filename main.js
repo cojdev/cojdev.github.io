@@ -105,6 +105,8 @@
 		canvas.height = window.innerHeight * pixelRatio;
 		canvas.style.width = window.innerWidth + "px";
 		canvas.style.height = window.innerHeight + "px";
+		document.getElementById("cvw").innerHTML = canvas.width;
+		document.getElementById("cvsw").innerHTML = canvas.style.width;
 		pointFun();
 	}
 

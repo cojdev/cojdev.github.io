@@ -21,6 +21,7 @@
 		setInterval(pointFun,16);
 		window.addEventListener('resize', resizeCanvas, false);
 	}
+
 	//Particle constructor
 	function point () {
 		this.x = (Math.random()*(canvas.width+maxDist))-(maxDist/2);
@@ -30,6 +31,7 @@
         this.dia = 2;
 		points.push(this);
 	}
+
 	//Point generator
 	function generatePoints (amount) {
 		var temp;
@@ -38,6 +40,7 @@
 		};
 		console.log(points);
 	}
+
 	//Point drawer
 	function draw (obj) {
 		ctx.beginPath();
@@ -50,6 +53,7 @@
 		ctx.closePath();
 		ctx.fill();
 	}
+
 	//Updates point position values
 	function update (obj) {
 		obj.x += obj.vx;
@@ -67,6 +71,7 @@
 			obj.y = canvas.height+(maxDist/2);
 		}
 	}
+
 	//
 	function pointFun () {
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -80,7 +85,8 @@
 			update(points[i]);
 		};
 	}
-
+	
+	//Generate lines between nearby particles
 	function collision (obj,dist) {
 		var temp;
 		for (var i = 0; i < points.length; i++) {
@@ -103,10 +109,9 @@
 	function resizeCanvas() {
 		canvas.width = window.innerWidth * pixelRatio;
 		canvas.height = window.innerHeight * pixelRatio;
+		//Necessary on devices where pixelRatio > 1
 		canvas.style.width = window.innerWidth + "px";
 		canvas.style.height = window.innerHeight + "px";
-		document.getElementById("cvw").innerHTML = canvas.width;
-		document.getElementById("cvsw").innerHTML = canvas.style.width;
 		pointFun();
 	}
 

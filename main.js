@@ -2,14 +2,16 @@
 (function () {
 	'use strict';
 	
-	var canvas,ctx,mousePos;
+	var canvas,ctx,mousePos,pixelRatio;
 	var points = [];
 	var maxDist = 200;
 
 	function init () {
 		//Add on load scripts
+		pixelRatio = Math.round(window.devicePixelRatio) || 1;
 		canvas = document.getElementById("canvas");
 		ctx = canvas.getContext("2d");
+		ctx.scale(2,2);
 		document.body.addEventListener("mousemove",function(evt){
 			mousePos = getMousePos(canvas,evt);
 		});
@@ -99,8 +101,8 @@
 	}
 
 	function resizeCanvas() {
-		canvas.width = window.innerWidth;
-	canvas.height = window.innerHeight;
+		canvas.width = window.innerWidth * pixelRatio;
+		canvas.height = window.innerHeight * pixelRatio;
 		pointFun();
 	}
 

@@ -1,4 +1,7 @@
-//IIFE
+/**
+ * Author: Charles Ojukwu
+ */
+
 (function () {
 	'use strict';
 	
@@ -28,7 +31,7 @@
 		this.y = (Math.random()*(canvas.height+maxDist))-(maxDist/2);
 		this.vx = (Math.random()*1)-.5;
 		this.vy = (Math.random()*1)-.5;
-        this.dia = 2;
+        this.dia = 2 * pixelRatio;
 		points.push(this);
 	}
 
@@ -114,12 +117,12 @@
 		canvas.style.height = window.innerHeight + "px";
 		pointFun();
 	}
-
-	function getMousePos(cvs, evt1) {
+	//Get Mouse Position
+	function getMousePos(cvs, evt) {
 		var rect = cvs.getBoundingClientRect();
 		return {
-			x: evt1.clientX - rect.left,
-			y: evt1.clientY - rect.top
+			x: evt.clientX - rect.left,
+			y: evt.clientY - rect.top
 		};
 	}
 

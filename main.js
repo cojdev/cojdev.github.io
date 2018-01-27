@@ -1,7 +1,6 @@
 /**
  * Author: Charles Ojukwu
  */
-
 (function () {
 	'use strict';
 	

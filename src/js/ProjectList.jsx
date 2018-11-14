@@ -8,7 +8,7 @@ export default class ProjectList extends React.Component {
             <Project key={index} data={item} />
         ))
         return (
-            <ul className="projects">
+            <ul className="project-list">
                 {projects}
             </ul>
         );

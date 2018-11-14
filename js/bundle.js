@@ -23167,21 +23167,17 @@ var Main = function (_React$Component) {
                 'main',
                 { className: 'main' },
                 _react2.default.createElement(
-                    'h1',
+                    'h2',
                     null,
-                    'Hello!'
+                    'Commercial Work'
                 ),
-                _react2.default.createElement(
-                    'p',
-                    null,
-                    'Lorem ipsum dolor sit amet consectetur adipisicing elit. Excitationem sint quisquam aut harum ullam fugit earum odio, eius aspernatur?'
-                ),
+                _react2.default.createElement(_ProjectList2.default, { data: _sitedata.projects.commercial }),
                 _react2.default.createElement(
                     'h2',
                     null,
-                    'Projects'
+                    'Personal Projects'
                 ),
-                _react2.default.createElement(_ProjectList2.default, { data: _sitedata.projects })
+                _react2.default.createElement(_ProjectList2.default, { data: _sitedata.projects.personal })
             );
         }
     }]);
@@ -23213,6 +23209,10 @@ var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
 var _react2 = _interopRequireDefault(_react);
 
+var _colour = __webpack_require__(/*! ./colour */ "./src/js/colour.js");
+
+var _colour2 = _interopRequireDefault(_colour);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -23231,29 +23231,61 @@ var Project = function (_React$Component) {
 
         _this.state = {
             mx: 0,
-            my: 0
+            my: 0,
+            bgx: .5,
+            bgy: .5,
+            bgc: 'transparent' //colour(true),
         };
+        _this.background = _react2.default.createRef();
         return _this;
     }
 
     _createClass(Project, [{
         key: 'componentDidMount',
         value: function componentDidMount() {
-            window.addEventListener('mousemove', this.parallax.bind(this));
+            var _this2 = this;
+
+            if (this.props.data.image) {
+                this.setState({ image: true }, function () {
+                    _this2.parallax.call(_this2, true);
+                    window.addEventListener('scroll', _this2.parallax.bind(_this2));
+                    window.addEventListener('resize', _this2.parallax.bind(_this2));
+                });
+            }
         }
     }, {
         key: 'parallax',
-        value: function parallax(e) {
+        value: function parallax() {
+            var target = this.background.current;
+
+            var targetPos = target.getBoundingClientRect().top;
+
+            var dy = window.innerHeight,
+                size = target.offsetHeight / 2;
+
+            if (targetPos + target.offsetHeight > 0 && targetPos - target.offsetHeight < dy) {
+                var bgy = -1 * size * (targetPos / dy);
+
+                console.log(bgy);
+
+                this.setState({
+                    bgy: bgy
+                });
+            }
+        }
+    }, {
+        key: 'mouse',
+        value: function mouse(e) {
             console.log(e.clientX, e.clientY);
 
             var mxRaw = e.clientX,
                 myRaw = e.clientY,
                 mx = mxRaw / window.innerWidth,
                 my = myRaw / window.innerHeight,
-                size = 10;
+                size = 14;
 
-            var bgx = size * (1 - 2 * mx);
-            var bgy = size * (1 - 2 * my);
+            var bgx = size * (2 * mx - 1);
+            var bgy = size * (2 * my - 1);
 
             this.setState({
                 mx: mx,
@@ -23267,32 +23299,48 @@ var Project = function (_React$Component) {
         value: function render() {
             var _state = this.state,
                 bgx = _state.bgx,
-                bgy = _state.bgy;
+                bgy = _state.bgy,
+                bgc = _state.bgc,
+                image = _state.image;
             var data = this.props.data;
 
             return _react2.default.createElement(
                 'li',
-                { className: 'projects--item' },
-                _react2.default.createElement('div', {
-                    className: 'projects--item--background',
-                    style: {
-                        backgroundImage: 'url(https://source.unsplash.com/300x200)',
-                        transform: 'translate(' + bgx + 'px, ' + bgy + 'px)'
-                    } }),
+                { className: 'project' },
+                image ? _react2.default.createElement(
+                    'div',
+                    { ref: this.background, className: 'project--image' },
+                    _react2.default.createElement('div', {
+                        className: 'project--background',
+                        style: {
+                            backgroundImage: 'url(' + data.image + ')',
+                            transform: 'translate(' + bgx + 'px, ' + bgy + 'px)'
+                        } })
+                ) : '',
                 _react2.default.createElement(
                     'div',
-                    { className: 'projects--item--text' },
+                    { className: 'project--text' },
                     _react2.default.createElement(
                         'h3',
                         null,
-                        data.title
+                        data.title,
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'project--date' },
+                            ' - ',
+                            data.date
+                        )
                     ),
                     _react2.default.createElement(
-                        'p',
-                        null,
-                        data.date,
-                        ' - ',
-                        data.tags.join(', ')
+                        'ul',
+                        { className: 'tags' },
+                        data.tags.map(function (item, index) {
+                            return _react2.default.createElement(
+                                'li',
+                                { key: index },
+                                item
+                            );
+                        })
                     ),
                     _react2.default.createElement(
                         'p',
@@ -23360,7 +23408,7 @@ var ProjectList = function (_React$Component) {
             });
             return _react2.default.createElement(
                 'ul',
-                { className: 'projects' },
+                { className: 'project-list' },
                 projects
             );
         }
@@ -23428,9 +23476,20 @@ var Sidebar = function (_React$Component) {
                     'Charles Ojukwu'
                 ),
                 _react2.default.createElement(
-                    'p',
+                    'h3',
                     null,
                     'Full-Stack Web Developer'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    'Lorem ipsum dolor sit amet consectetur adipisicing elit. Excitationem sint quisquam.'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    { className: 'sidebar--location' },
+                    _react2.default.createElement('i', { className: 'fas fa-map-marker-alt' }),
+                    ' London, UK'
                 ),
                 _react2.default.createElement(_Social2.default, { data: _sitedata.social })
             );
@@ -23488,6 +23547,39 @@ function Social(props) {
 
 /***/ }),
 
+/***/ "./src/js/colour.js":
+/*!**************************!*\
+  !*** ./src/js/colour.js ***!
+  \**************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = colour;
+function colour(bright) {
+    var val = void 0;
+
+    if (bright) {
+        val = 'hsl(' + Math.floor(Math.random() * 360) + ', 80%, 50%)';
+    } else {
+        val = '#';
+        var chars = '1234567890ABCDEF'.split('');
+        for (var i = 0; i < 6; i++) {
+            val += chars[Math.floor(Math.random() * chars.length)];
+        }
+    }
+
+    console.log(val);
+    return val;
+}
+
+/***/ }),
+
 /***/ "./src/js/index.jsx":
 /*!**************************!*\
   !*** ./src/js/index.jsx ***!
@@ -23530,22 +23622,54 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 var sitedata = {
-    projects: [{
-        title: 'Calendar/To do list',
-        description: 'Calendar/To do list application made with VueJs.',
-        tags: ['Vue', 'Sass'],
-        date: '2017'
-    }, {
-        title: 'Particles',
-        description: 'Javascript particle system for HTML5 Canvas.',
-        tags: ['Javascript', 'Sass'],
-        date: '2017'
-    }, {
-        title: 'Low-poly Generator',
-        description: 'Generator for abstract low poly backgrounds.',
-        tags: ['React', 'Sass'],
-        date: '2015'
-    }],
+
+    projects: {
+
+        commercial: [{
+            title: 'Online Post Production',
+            description: 'Website design and development for London based Post Production House',
+            tags: ['React', 'Sass', 'Silverstripe', 'Nginx'],
+            date: '2018'
+        }, {
+            title: 'Air Handling',
+            description: 'Website design and development for an Air Handling distributor.',
+            tags: ['PHP', 'Vanilla JS', 'Sass'],
+            date: '2017'
+        }, {
+            title: 'C-Squared Sales',
+            description: 'Website design and development for a Kent based HVAC Engineering company.',
+            tags: ['WordPress', 'Vanilla JS', 'Sass', 'Apache'],
+            date: '2017'
+        }],
+
+        personal: [{
+            title: 'World Cup Predictor',
+            description: 'A predictor app for the 2018 World Cup.',
+            tags: ['React', 'Sass'],
+            date: '2018',
+            image: 'https://source.unsplash.com/600x400/?soccer'
+        }, {
+            title: 'Particles',
+            description: 'Javascript particle system for HTML5 Canvas.',
+            tags: ['Canvas', 'Vanulla JS', 'Sass'],
+            date: '2017',
+            image: 'img/particles.png'
+        }, {
+            title: 'Calendar Organiser',
+            description: 'Calendar organiser application made with VueJs.',
+            tags: ['Vue', 'PHP', 'Sass'],
+            date: '2017',
+            image: 'img/calendar.png'
+        }, {
+            title: 'Low-poly Generator',
+            description: 'Generator for abstract low poly backgrounds.',
+            tags: ['React', 'Sass'],
+            date: '2015',
+            image: 'img/lowpoly.png'
+        }]
+    },
+
+    location: 'London, UK',
 
     social: [{
         name: 'Email',
@@ -23559,13 +23683,31 @@ var sitedata = {
         name: 'Codepen',
         link: 'https://codepen.io/cojdev',
         class: 'fab fa-codepen'
+    }],
+
+    skills: [{
+        name: 'Front End',
+        items: ['React', 'Vue', 'Sass', 'Less']
+    }, {
+        name: 'Back End',
+        items: ['PHP', 'WordPress', 'NodeJs']
+    }, {
+        name: 'Workflow',
+        items: ['NPM', 'Gulp', 'Webpack']
+    }, {
+        name: 'Software',
+        items: ['Adobe CC', 'Figma', 'VS Code']
     }]
 };
 
 var projects = sitedata.projects,
-    social = sitedata.social;
+    social = sitedata.social,
+    location = sitedata.location,
+    skills = sitedata.skills;
 exports.projects = projects;
 exports.social = social;
+exports.location = location;
+exports.skills = skills;
 
 /***/ })
 

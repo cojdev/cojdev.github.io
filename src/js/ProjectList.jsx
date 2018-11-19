@@ -1,6 +1,25 @@
 import React from 'react';
 import Project from './Project';
+import styled from 'styled-components';
 
+const StyledProjectList = styled.ul`
+
+    display: block;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 4rem;
+
+    @media screen and (min-width: 720px) {
+        display: flex;
+        flex-wrap: wrap;
+        margin: -1rem;
+
+        :not(:last-child) {
+            margin-bottom: 4rem;
+        }
+    }
+`;
 
 export default class ProjectList extends React.Component {
     render() {
@@ -8,9 +27,9 @@ export default class ProjectList extends React.Component {
             <Project key={index} data={item} />
         ))
         return (
-            <ul className="project-list">
+            <StyledProjectList>
                 {projects}
-            </ul>
+            </StyledProjectList>
         );
     }
 }

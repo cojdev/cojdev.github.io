@@ -1,80 +1,80 @@
 import React from 'react';
 import styled from 'styled-components';
-import colour from './colour';
+import colour from '../common/colour';
+import { technologies } from '../common/sitedata';
 
 const StyledProject = styled.div`
 
     display: block;
     width: 100%;
     cursor: pointer;
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
 
     h3 {
         margin-top: 0;
         margin-bottom: 0;
     }
-
-    @media screen and (min-width: 720px) {
-        width: calc(50% - 2rem);
-        margin: 1rem;
-    }
 `;
 
 const Background = styled.div`
     position: absolute;
-    top: -100px;
+    top: 0;
     left: 0;
     right: 0;
-    bottom: -100px;
+    bottom: -120px;
     background-color: #444;
     background-size: cover;
     background-position: center;
     z-index: -1;
+
 `;
 
 const Image = styled.div`
     margin-bottom: 1rem;
-    margin-left: -1rem;
-    margin-right: -1rem;
-    height: 200px;
-    box-shadow: inset 0 10px 30px rgba(0,0,0,0.1);
+    height: 120px;
+    box-shadow: inset 0 8px 20px rgba(0,0,0,0.06);
+    /* box-shadow: inset 0 0 0 6px red; */
     overflow: hidden;
     position: relative;
 
-    @media screen and (min-width: 1200px) {
+    @media screen and (min-width: 720px) {
         border-radius: 2px;
-        margin-left: 0;
-        margin-right: 0;
     }
+`;
+
+const Description = styled.p`
+    margin: .5em 0;
 `;
 
 const TagList = styled.ul`
     list-style: none;
     padding: 0;
-    margin: 1em 0;
+    margin: 0;
+    line-height: 1.5;
 `;
 
-const Tag = styled.li`
+const TagLabel = styled.li`
 
     display: inline-block;
     margin-right: 1ch;
-    font-size: 12px;
-    line-height: 1;
-    color: #fff;
-    font-weight: 500;
-    background: #b13;
-    padding: .5ch 1.5ch;
-    border-radius: 100px;
-    box-shadow: 0 5px 15px rgba(11, 33, 22, .1);
+    font-size: 14px;
+    font-weight: 700;
+`;
+
+const Tag = styled(TagLabel)`
 
     :before {
         content: '';
         display: inline-block;
         position: relative;
-        height: .5rem;
-        width: .5rem;
-        border-radius: 50%;
-        color: #000;
+        height: .3rem;
+        width: .3rem;
+        margin-right: .6ch;
+        top: -.2rem;
+        border-radius: 40%;
+        background-color: ${props => props.background || '#ccc'};
+        
+    box-shadow: 0 5px 15px rgba(11, 33, 22, .1);
     }
 `;
 
@@ -87,7 +87,7 @@ export default class Project extends React.Component {
             my: 0,
             bgx: .5,
             bgy: .5,
-            bgc: 'transparent',//colour(true),
+            bgc: 'transparent',
         };
         this.background = React.createRef();
     }
@@ -102,29 +102,32 @@ export default class Project extends React.Component {
         }
     }
 
+    /**
+     * parallax
+     */
     parallax() {
+        // the background and position
         const target = this.background.current;
-        
         const targetPos = target.getBoundingClientRect().top;
         
+        // distance to travel
         const dy = window.innerHeight,
-            
-            size = target.offsetHeight / 2;
+            size = target.offsetHeight;
 
+        // prevent unnecessary state changes
         if ((targetPos + target.offsetHeight) > 0 && (targetPos - target.offsetHeight) < dy) {
-            const bgy = -1 * size * (targetPos/dy);
 
-            // console.log(bgy);
+            const bgy = -1 * size * ((targetPos)/(dy - size));
 
-            this.setState({
-                bgy: bgy
-            });
+            this.setState({ bgy: bgy });
         }
     }
-
+    
+    /**
+     * Set the mouse position in state
+     * @param {MouseEvent} e The mouse event
+     */
     mouse(e) {
-        // console.log(e.clientX, e.clientY);
-
         const mxRaw = e.clientX,
             myRaw = e.clientY,
             
@@ -158,12 +161,18 @@ export default class Project extends React.Component {
                 </Image> : ''}
                 
                 <div className="project--text">
-                    <h3>{data.title}</h3>
-                    <a className="project--link" href={data.url}>View</a>
-                    <TagList>{data.tags.map((item, index) => (
-                        <Tag key={index}>{item}</Tag>
+                    <h3>{data.title} <a href={data.url}>View</a></h3>
+                    <Description>{data.description}</Description>
+                    <TagList>
+                        <TagLabel>Technologies:</TagLabel>
+                        {data.tags.map((item, index) => (
+                        <Tag key={index} background={() => {
+                            const colour = technologies.find(item2 => {
+                                return item2.name === item;
+                            });
+                            return colour !== undefined ? colour.colour : '#bbb';
+                        }}>{item}</Tag>
                     ))}</TagList>
-                    <p>{data.description}</p>
                 </div>
             </StyledProject>
         )

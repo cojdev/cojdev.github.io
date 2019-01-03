@@ -10,20 +10,14 @@ const StyledProjectList = styled.ul`
     margin: 0;
     margin-bottom: 4rem;
 
-    @media screen and (min-width: 720px) {
-        display: flex;
-        flex-wrap: wrap;
-        margin: -1rem;
-
-        :not(:last-child) {
-            margin-bottom: 4rem;
-        }
+    &:last-child {
+        margin-bottom: 4rem;
     }
 `;
 
 export default class ProjectList extends React.Component {
     render() {
-        const projects = this.props.data.map((item, index) => (
+        const projects = this.props.data.filter(item => item.hidden !== true).map((item, index) => (
             <Project key={index} data={item} />
         ))
         return (

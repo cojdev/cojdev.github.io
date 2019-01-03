@@ -2,86 +2,87 @@ const sitedata = {
 
     projects: {
 
-        commercial: [
-            {
+        commercial: [{
                 title: 'Online Post Production',
                 description: 'Website development for London based Post Production House',
                 url: 'https://onlinepp.co.uk',
-                tags: ['React', 'Sass', 'Silverstripe', 'Nginx'],
+                tags: ['React', 'Sass', 'Silverstripe', 'MySQL'],
                 date: '2018',
             },
             {
                 title: 'C-Squared Sales',
                 description: 'Website design and development for a Kent based HVAC Engineering company.',
                 url: 'https://c2sales.co.uk',
-                tags: ['WordPress', 'Vanilla JS', 'Sass', 'Apache', 'Gitlab CI'],
+                tags: ['WordPress', 'Sass', 'Gitlab CI', 'MySQL'],
                 date: '2017',
             },
             {
                 title: 'Air Handling',
                 description: 'Website design and development for an Air Handling distributor.',
                 url: 'https://air-handling.co.uk',
-                tags: ['PHP', 'Vanilla JS', 'Sass'],
+                tags: ['PHP', 'Sass', 'MySQL'],
                 date: '2017',
             },
         ],
 
         personal: [
             {
+                title: 'Low-poly Generator',
+                description: 'Generator for abstract low poly backgrounds.',
+                tags: ['React', 'ES6', 'styled-components'],
+                date: '2015',
+                image: 'img/lowpoly.png',
+                url: "/lowpoly",
+            },{
                 title: 'World Cup Predictor',
                 description: 'A predictor app for the 2018 World Cup.',
-                tags: ['React', 'Sass'],
+                tags: ['React', 'ES6', 'Sass'],
                 date: '2018',
                 image: 'https://source.unsplash.com/600x400/?soccer',
+                url: "/world-cup",
+                hidden: true,
             },
             {
                 title: 'Particles',
                 description: 'Javascript particle system for HTML5 Canvas.',
-                tags: ['Canvas', 'Vanulla JS', 'Sass'],
+                tags: ['Canvas', 'ES6', 'Sass'],
                 date: '2017',
                 image: 'img/particles.png',
+                url: "/particles",
             },
             {
                 title: 'Calendar Organiser',
                 description: 'Calendar organiser application made with VueJs.',
-                tags: ['Vue', 'PHP', 'Sass'],
+                tags: ['Vue', 'PHP', 'Sass', 'MySQL'],
                 date: '2017',
                 image: 'img/calendar.png',
-            },
-            {
-                title: 'Low-poly Generator',
-                description: 'Generator for abstract low poly backgrounds.',
-                tags: ['React', 'Sass'],
-                date: '2015',
-                image: 'img/lowpoly.png',
+                url: "/calendar",
             },
         ],
     },
 
     location: 'London, UK',
 
-    social: [
-        {
+    social: [{
             name: 'Email',
-            link: 'mailto:charles.ojukwu1@gmail.com',
+            url: 'mailto:charles.ojukwu1@gmail.com',
             class: 'far fa-envelope'
         },
         {
             name: 'Github',
-            link: 'https://github.com/cojdev',
+            url: 'https://github.com/cojdev',
             class: 'fab fa-github'
         },
         {
             name: 'Codepen',
-            link: 'https://codepen.io/cojdev',
+            url: 'https://codepen.io/cojdev',
             class: 'fab fa-codepen'
         },
     ],
 
-    skills: [
-        {
+    skills: [{
             name: 'Front End',
-            items: ['React', 'Vue', 'Sass', 'Less',],
+            items: ['React', 'Vue', 'Sass', 'Less', ],
         },
         {
             name: 'Back End',
@@ -94,9 +95,71 @@ const sitedata = {
         {
             name: 'Software',
             items: ['Adobe CC', 'Figma', 'VS Code'],
-        }
+        },
+    ],
 
+    technologies: [{
+            name: 'React',
+            colour: '#61dafb',
+        },
+
+        {
+            name: 'Vue',
+            colour: '#41b883',
+        },
+
+        {
+            name: 'Gulp',
+            colour: '#cf4647',
+        },
+
+        {
+            name: 'Sass',
+            colour: '#cd6799',
+        },
+
+        {
+            name: 'Silverstripe',
+            colour: '#005b94',
+        },
+
+        {
+            name: 'WordPress',
+            colour: '#0073aa',
+        },
+
+        {
+            name: 'MySQL',
+            colour: '#de8a00',
+        },
+
+        {
+            name: 'ES6',
+            colour: '#f0db4f',
+        },
+
+        {
+            name: 'PHP',
+            colour: '#687ab2',
+        },
+
+        {
+            name: 'Gitlab CI',
+            colour: '#e65328',
+        },
+
+        {
+            name: 'styled-components',
+            colour: '#db7093',
+        }
     ]
 };
 
-export const { projects, social, location, skills } = sitedata;
+export default sitedata;
+export const {
+    projects,
+    social,
+    location,
+    skills,
+    technologies
+} = sitedata;

@@ -36141,11 +36141,12 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _templateObject = _taggedTemplateLiteral(['\n\n    display: block;\n    width: 100%;\n    cursor: pointer;\n    margin-bottom: 4rem;\n\n    h3 {\n        margin-top: 0;\n        margin-bottom: 0;\n    }\n'], ['\n\n    display: block;\n    width: 100%;\n    cursor: pointer;\n    margin-bottom: 4rem;\n\n    h3 {\n        margin-top: 0;\n        margin-bottom: 0;\n    }\n']),
     _templateObject2 = _taggedTemplateLiteral(['\n    position: absolute;\n    top: 0;\n    left: 0;\n    right: 0;\n    bottom: -120px;\n    background-color: #444;\n    background-size: cover;\n    background-position: center;\n    z-index: -1;\n\n'], ['\n    position: absolute;\n    top: 0;\n    left: 0;\n    right: 0;\n    bottom: -120px;\n    background-color: #444;\n    background-size: cover;\n    background-position: center;\n    z-index: -1;\n\n']),
-    _templateObject3 = _taggedTemplateLiteral(['\n    margin-bottom: 1rem;\n    height: 120px;\n    box-shadow: inset 0 8px 20px rgba(0,0,0,0.06);\n    /* box-shadow: inset 0 0 0 6px red; */\n    overflow: hidden;\n    position: relative;\n\n    @media screen and (min-width: 720px) {\n        border-radius: 2px;\n    }\n'], ['\n    margin-bottom: 1rem;\n    height: 120px;\n    box-shadow: inset 0 8px 20px rgba(0,0,0,0.06);\n    /* box-shadow: inset 0 0 0 6px red; */\n    overflow: hidden;\n    position: relative;\n\n    @media screen and (min-width: 720px) {\n        border-radius: 2px;\n    }\n']),
-    _templateObject4 = _taggedTemplateLiteral(['\n    margin: .5em 0;\n'], ['\n    margin: .5em 0;\n']),
-    _templateObject5 = _taggedTemplateLiteral(['\n    list-style: none;\n    padding: 0;\n    margin: 0;\n    line-height: 1.5;\n'], ['\n    list-style: none;\n    padding: 0;\n    margin: 0;\n    line-height: 1.5;\n']),
-    _templateObject6 = _taggedTemplateLiteral(['\n\n    display: inline-block;\n    margin-right: 1ch;\n    font-size: 14px;\n    font-weight: 700;\n'], ['\n\n    display: inline-block;\n    margin-right: 1ch;\n    font-size: 14px;\n    font-weight: 700;\n']),
-    _templateObject7 = _taggedTemplateLiteral(['\n\n    :before {\n        content: \'\';\n        display: inline-block;\n        position: relative;\n        height: .3rem;\n        width: .3rem;\n        margin-right: .6ch;\n        top: -.2rem;\n        border-radius: 40%;\n        background-color: ', ';\n        \n    box-shadow: 0 5px 15px rgba(11, 33, 22, .1);\n    }\n'], ['\n\n    :before {\n        content: \'\';\n        display: inline-block;\n        position: relative;\n        height: .3rem;\n        width: .3rem;\n        margin-right: .6ch;\n        top: -.2rem;\n        border-radius: 40%;\n        background-color: ', ';\n        \n    box-shadow: 0 5px 15px rgba(11, 33, 22, .1);\n    }\n']);
+    _templateObject3 = _taggedTemplateLiteral(['\n    margin-bottom: 1rem;\n    height: 120px;\n    box-shadow: inset 0 4px 12px rgba(10,20,40,0.04);\n    /* box-shadow: inset 0 0 0 6px red; */\n    overflow: hidden;\n    position: relative;\n\n    @media screen and (min-width: 720px) {\n        border-radius: 2px;\n    }\n'], ['\n    margin-bottom: 1rem;\n    height: 120px;\n    box-shadow: inset 0 4px 12px rgba(10,20,40,0.04);\n    /* box-shadow: inset 0 0 0 6px red; */\n    overflow: hidden;\n    position: relative;\n\n    @media screen and (min-width: 720px) {\n        border-radius: 2px;\n    }\n']),
+    _templateObject4 = _taggedTemplateLiteral(['\n\n'], ['\n\n']),
+    _templateObject5 = _taggedTemplateLiteral(['\n    margin: .5em 0;\n'], ['\n    margin: .5em 0;\n']),
+    _templateObject6 = _taggedTemplateLiteral(['\n    list-style: none;\n    padding: 0;\n    margin: 0;\n    line-height: 1.5;\n'], ['\n    list-style: none;\n    padding: 0;\n    margin: 0;\n    line-height: 1.5;\n']),
+    _templateObject7 = _taggedTemplateLiteral(['\n\n    display: inline-block;\n    margin-right: 1ch;\n    font-size: 14px;\n    font-weight: 700;\n'], ['\n\n    display: inline-block;\n    margin-right: 1ch;\n    font-size: 14px;\n    font-weight: 700;\n']),
+    _templateObject8 = _taggedTemplateLiteral(['\n\n    :before {\n        content: \'\';\n        display: inline-block;\n        position: relative;\n        height: .3rem;\n        width: .3rem;\n        margin-right: .6ch;\n        top: -.2rem;\n        border-radius: 40%;\n        background-color: ', ';\n        \n    box-shadow: 0 5px 15px rgba(11, 33, 22, .1);\n    }\n'], ['\n\n    :before {\n        content: \'\';\n        display: inline-block;\n        position: relative;\n        height: .3rem;\n        width: .3rem;\n        margin-right: .6ch;\n        top: -.2rem;\n        border-radius: 40%;\n        background-color: ', ';\n        \n    box-shadow: 0 5px 15px rgba(11, 33, 22, .1);\n    }\n']);
 
 var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
@@ -36177,13 +36178,15 @@ var Background = _styledComponents2.default.div(_templateObject2);
 
 var Image = _styledComponents2.default.div(_templateObject3);
 
-var Description = _styledComponents2.default.p(_templateObject4);
+var ProjectText = _styledComponents2.default.div(_templateObject4);
 
-var TagList = _styledComponents2.default.ul(_templateObject5);
+var Description = _styledComponents2.default.p(_templateObject5);
 
-var TagLabel = _styledComponents2.default.li(_templateObject6);
+var TagList = _styledComponents2.default.ul(_templateObject6);
 
-var Tag = (0, _styledComponents2.default)(TagLabel)(_templateObject7, function (props) {
+var TagLabel = _styledComponents2.default.li(_templateObject7);
+
+var Tag = (0, _styledComponents2.default)(TagLabel)(_templateObject8, function (props) {
     return props.background || '#ccc';
 });
 
@@ -36237,9 +36240,8 @@ var Project = function (_React$Component) {
 
             // prevent unnecessary state changes
             if (targetPos + target.offsetHeight > 0 && targetPos - target.offsetHeight < dy) {
-
+                // set the background transform to the negative value of the relative position of the image in the viewport
                 var bgy = -1 * size * (targetPos / (dy - size));
-
                 this.setState({ bgy: bgy });
             }
         }
@@ -36291,8 +36293,8 @@ var Project = function (_React$Component) {
                         } })
                 ) : '',
                 _react2.default.createElement(
-                    'div',
-                    { className: 'project--text' },
+                    ProjectText,
+                    null,
                     _react2.default.createElement(
                         'h3',
                         null,
@@ -36537,6 +36539,10 @@ var _styledComponents = __webpack_require__(/*! styled-components */ "./node_mod
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
+var _sitedata = __webpack_require__(/*! ../common/sitedata */ "./src/js/common/sitedata.js");
+
+var _sitedata2 = _interopRequireDefault(_sitedata);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
@@ -36568,7 +36574,7 @@ function SocialList(props) {
             Item,
             null,
             _react2.default.createElement('i', { className: 'fas fa-map-marker-alt' }),
-            ' London, UK'
+            _sitedata2.default.profile.location
         ),
         items
     );
@@ -36609,6 +36615,8 @@ var _SocialList2 = _interopRequireDefault(_SocialList);
 
 var _sitedata = __webpack_require__(/*! ../common/sitedata */ "./src/js/common/sitedata.js");
 
+var _sitedata2 = _interopRequireDefault(_sitedata);
+
 var _theme = __webpack_require__(/*! ../common/theme */ "./src/js/common/theme.js");
 
 var _theme2 = _interopRequireDefault(_theme);
@@ -36645,12 +36653,12 @@ var Sidebar = function (_React$Component) {
                 _react2.default.createElement(
                     'h1',
                     null,
-                    'Charles Ojukwu'
+                    _sitedata2.default.profile.name
                 ),
                 _react2.default.createElement(
                     SubTitle,
                     null,
-                    'Full-Stack Web Developer'
+                    _sitedata2.default.profile.role
                 ),
                 _react2.default.createElement(
                     'p',
@@ -36712,6 +36720,12 @@ Object.defineProperty(exports, "__esModule", {
 });
 var sitedata = {
 
+    profile: {
+        name: 'Charles Ojukwu',
+        role: 'Full Stack Web Developer',
+        location: 'London, UK'
+    },
+
     projects: {
 
         commercial: [{
@@ -36765,8 +36779,6 @@ var sitedata = {
             url: "/calendar"
         }]
     },
-
-    location: 'London, UK',
 
     social: [{
         name: 'Email',

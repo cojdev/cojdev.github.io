@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import sitedata from '../common/sitedata';
 
 const StyledSocialList = styled.ul`
     list-style: none;
@@ -38,7 +39,7 @@ export default function SocialList(props) {
 
     return (
         <StyledSocialList>
-            <Item><i className="fas fa-map-marker-alt"></i> London, UK</Item>
+            <Item><i className="fas fa-map-marker-alt"></i>{sitedata.profile.location}</Item>
             {items}
             {/* <i class="far fa-envelope"></i>
             <i class="fab fa-github"></i>

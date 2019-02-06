@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import SocialList from './SocialList';
-import { social } from '../common/sitedata';
+import sitedata, { social } from '../common/sitedata';
 import theme from '../common/theme';
 
 const StyledSidebar = styled.aside`
@@ -36,8 +36,8 @@ export default class Sidebar extends React.Component {
     render() {
         return (
             <StyledSidebar>
-                <h1>Charles Ojukwu</h1>
-                <SubTitle>Full-Stack Web Developer</SubTitle>
+                <h1>{sitedata.profile.name}</h1>
+                <SubTitle>{sitedata.profile.role}</SubTitle>
                 <p>London based full stack developer working with React and NodeJs and experience using PHP, WordPress, and Vue.</p>
                 <SocialList data={social} />
             </StyledSidebar>

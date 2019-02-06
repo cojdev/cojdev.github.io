@@ -1,8 +1,15 @@
 const sitedata = {
 
+    profile: {
+        name: 'Charles Ojukwu',
+        role: 'Full Stack Web Developer',
+        location: 'London, UK',
+    },
+
     projects: {
 
-        commercial: [{
+        commercial: [
+            {
                 title: 'Online Post Production',
                 description: 'Website development for London based Post Production House',
                 url: 'https://onlinepp.co.uk',
@@ -61,9 +68,8 @@ const sitedata = {
         ],
     },
 
-    location: 'London, UK',
-
-    social: [{
+    social: [
+        {
             name: 'Email',
             url: 'mailto:charles.ojukwu1@gmail.com',
             class: 'far fa-envelope'
@@ -80,7 +86,8 @@ const sitedata = {
         },
     ],
 
-    skills: [{
+    skills: [
+        {
             name: 'Front End',
             items: ['React', 'Vue', 'Sass', 'Less', ],
         },
@@ -98,56 +105,47 @@ const sitedata = {
         },
     ],
 
-    technologies: [{
+    technologies: [
+        {
             name: 'React',
             colour: '#61dafb',
         },
-
         {
             name: 'Vue',
             colour: '#41b883',
         },
-
         {
             name: 'Gulp',
             colour: '#cf4647',
         },
-
         {
             name: 'Sass',
             colour: '#cd6799',
         },
-
         {
             name: 'Silverstripe',
             colour: '#005b94',
         },
-
         {
             name: 'WordPress',
             colour: '#0073aa',
         },
-
         {
             name: 'MySQL',
             colour: '#de8a00',
         },
-
         {
             name: 'ES6',
             colour: '#f0db4f',
         },
-
         {
             name: 'PHP',
             colour: '#687ab2',
         },
-
         {
             name: 'Gitlab CI',
             colour: '#e65328',
         },
-
         {
             name: 'styled-components',
             colour: '#db7093',
@@ -161,5 +159,4 @@ export const {
     social,
     location,
     skills,
-    technologies
-} = sitedata;
+    technologies } = sitedata;

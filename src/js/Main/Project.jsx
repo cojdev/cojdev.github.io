@@ -32,7 +32,7 @@ const Background = styled.div`
 const Image = styled.div`
     margin-bottom: 1rem;
     height: 120px;
-    box-shadow: inset 0 8px 20px rgba(0,0,0,0.06);
+    box-shadow: inset 0 4px 12px rgba(10,20,40,0.04);
     /* box-shadow: inset 0 0 0 6px red; */
     overflow: hidden;
     position: relative;
@@ -40,6 +40,10 @@ const Image = styled.div`
     @media screen and (min-width: 720px) {
         border-radius: 2px;
     }
+`;
+
+const ProjectText = styled.div`
+
 `;
 
 const Description = styled.p`
@@ -116,9 +120,8 @@ export default class Project extends React.Component {
 
         // prevent unnecessary state changes
         if ((targetPos + target.offsetHeight) > 0 && (targetPos - target.offsetHeight) < dy) {
-
+            // set the background transform to the negative value of the relative position of the image in the viewport
             const bgy = -1 * size * ((targetPos)/(dy - size));
-
             this.setState({ bgy: bgy });
         }
     }
@@ -160,7 +163,7 @@ export default class Project extends React.Component {
                             }} />
                 </Image> : ''}
                 
-                <div className="project--text">
+                <ProjectText>
                     <h3>{data.title} <a href={data.url}>View</a></h3>
                     <Description>{data.description}</Description>
                     <TagList>
@@ -173,7 +176,7 @@ export default class Project extends React.Component {
                             return colour !== undefined ? colour.colour : '#bbb';
                         }}>{item}</Tag>
                     ))}</TagList>
-                </div>
+                </ProjectText>
             </StyledProject>
         )
     }

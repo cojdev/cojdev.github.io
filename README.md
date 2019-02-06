@@ -1,16 +1,7 @@
 # cojdev.github.io
 Personal Portfolio
 
-## Todo
-* Incorporate React
-* Add CSS Modules
-* Complete layout
-* Typescript?
-
 ## Personal Projects
-
-### World Cup Predictor - 2018
-Predictor app made for the 2018 Fifa World Cup. 
 
 ### Calendar - 2017
 Calendar/To do list application made with VueJs.
@@ -28,9 +19,3 @@ Generator for abstract low poly backgrounds.
 
 * [Website](//cojdev.github.io)
 * [Codepen](//codepen.io/cojdev)
-
-### Inspiration
-* [Tania Rascia](https://www.taniarascia.com/)
-* [Zach Cole](http://zcole.me/)
-* [danielrd](http://danielrd.com/)
-* (https://futurecomes.com/)

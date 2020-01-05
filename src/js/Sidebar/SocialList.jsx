@@ -1,49 +1,37 @@
 import React from 'react';
 import styled from 'styled-components';
-import sitedata from '../common/sitedata';
+import siteData from '../common/siteData';
 
 const StyledSocialList = styled.ul`
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  list-style: none;
+  margin: 1rem 0;
+  padding: 0;
 `;
 
 const Item = styled.li`
-    display: inline-block;
-    margin-right: 1ch;
+  display: inline-block;
+  margin-right: 1ch;
 
-    a {
-        color: #e14;
-    }
-
-    :not(:last-child):after {
-        display: inline-block;
-        content: '';
-        position: relative;
-        
-        height: .25em;
-        width: .25em;
-
-        margin-left: 1ch;
-        background-color: #ddd;
-    }
+  a {
+    color: #e14;
+  }
 `;
 
-export default function SocialList(props) {
+const SocialList = (props) => {
+  const items = props.data.map((item, index) => (
+    <Item key={index}>
+      <a href={item.url}><i className={item.class}></i></a>
+    </Item>
+  ));
 
-    const items = props.data.map((item, index) => (
-        <Item key={index}>
-            <a href={item.url}><i className={item.class}></i> {item.name}</a>
-        </Item>
-    ));
+  return (
+    <>
+      <StyledSocialList>
+        {items}
+        <Item><i className="fas fa-map-marker-alt"></i> {siteData.profile.location}</Item>
+      </StyledSocialList>
+    </>
+  );
+};
 
-    return (
-        <StyledSocialList>
-            <Item><i className="fas fa-map-marker-alt"></i>{sitedata.profile.location}</Item>
-            {items}
-            {/* <i class="far fa-envelope"></i>
-            <i class="fab fa-github"></i>
-            <i class="fab fa-codepen"></i> */}
-        </StyledSocialList>
-    );
-}
+export default SocialList;

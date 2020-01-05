@@ -1,28 +1,29 @@
 <!DOCTYPE>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="x-ua-compatible" content="ie=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Charles Ojukwu | Personal Portfolio</title>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-<link rel="stylesheet" href="assets/ptrootuiweb/style.css">
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Charles Ojukwu | Personal Portfolio</title>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+	<link rel="stylesheet" href="assets/inter/style.css">
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-60240085-8"></script>
-<script>
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-60240085-8"></script>
+	<script>
+		// Only trigger in production
+		if (document.location.hostname === 'cojdev.github.io') {
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
 
-	gtag('config', 'UA-60240085-8');
-</script>
-
+			gtag('config', 'UA-60240085-8');
+		}
+	</script>
 </head>
+
 <body>
-
-<div id="root"></div>
-
-<script src="js/bundle.js"></script>
+	<div id="root"></div>
+	<script src="js/bundle.js"></script>
 </body>
 </html>

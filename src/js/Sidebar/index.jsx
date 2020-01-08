@@ -12,22 +12,18 @@ const StyledSidebar = styled.aside`
   @media screen and (min-width: ${theme.breakpoints.s}) {
     display: flex;
     align-items: center;
-    left: 0;
     height: 100vh;
+    flex-shrink: 0;
     width: 320px;
     box-shadow: inset 2px 0 0 #e14;
-  }
-
-  @media screen and (min-width: ${theme.breakpoints.m}) {
-    width: 400px;
   }
 `;
 
 const SubTitle = styled.p`
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-    line-height: 1;
-    color: #e14;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  line-height: 1;
+  color: #e14;
 `;
 
 const Sidebar = () => (

@@ -5,6 +5,7 @@ import styled, { createGlobalStyle } from 'styled-components';
 import Sidebar from './Sidebar';
 import Main from './Main';
 import theme from './common/theme';
+import Menu from './Menu';
 
 const GlobalStyles = createGlobalStyle`
   *, *::before, *::after {
@@ -87,7 +88,10 @@ const GlobalStyles = createGlobalStyle`
 `;
 
 const StyledWrapper = styled.div`
-  display: flex;
+  @media screen and (min-width: ${theme.breakpoints.s}) {
+    display: flex;
+    flex-direction: row;
+  }
 `;
 
 export default class App extends React.Component {
@@ -97,6 +101,7 @@ export default class App extends React.Component {
         <GlobalStyles />
         <Sidebar />
         <Main />
+        <Menu />
       </StyledWrapper>
     );
   }

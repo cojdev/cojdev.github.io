@@ -8,11 +8,11 @@ const StyledProject = styled.div`
     display: block;
     width: 100%;
 
-    @media screen and (min-width: ${theme.breakpoints.m}) {
-      width: calc(50% - 1rem);
-    }
+    /* @media screen and (min-width: ${theme.breakpoints.s}) { */
+      /* width: calc(50% - 1rem); */
+    /* } */
 
-    @media screen and (min-width: ${theme.breakpoints.l}) {
+    @media screen and (min-width: ${theme.breakpoints.m}) {
       width: calc(50% - 2rem);
     }
 

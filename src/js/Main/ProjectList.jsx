@@ -11,9 +11,9 @@ const StyledProjectList = styled.ul`
   justify-content: space-between;
 `;
 
-const ProjectList = (props) => {
-  const projects = props.data.filter(item => item.hidden !== true).map((item, index) => (
-    <Project key={index} data={item} />
+const ProjectList = ({ data, scrollTop }) => {
+  const projects = data.filter(item => item.hidden !== true).map((item, index) => (
+    <Project key={index} data={item} scrollTop={scrollTop} />
   ));
 
   return (

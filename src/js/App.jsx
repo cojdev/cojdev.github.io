@@ -94,15 +94,13 @@ const StyledWrapper = styled.div`
   }
 `;
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <StyledWrapper>
-        <GlobalStyles />
-        <Sidebar />
-        <Main />
-        <Menu />
-      </StyledWrapper>
-    );
-  }
-}
+const App = () => (
+  <StyledWrapper>
+    <GlobalStyles />
+    <Sidebar />
+    <Main />
+    <Menu />
+  </StyledWrapper>
+);
+
+export default App;

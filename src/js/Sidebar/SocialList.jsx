@@ -17,8 +17,8 @@ const Item = styled.li`
   }
 `;
 
-const SocialList = (props) => {
-  const items = props.data.map((item, index) => (
+const SocialList = ({ data }) => {
+  const items = data.map((item, index) => (
     <Item key={index}>
       <a href={item.url}><i className={item.class}></i></a>
     </Item>

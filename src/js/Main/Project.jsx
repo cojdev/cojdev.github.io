@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { technologies } from '../common/siteData';
 import theme from '../common/theme';
@@ -86,103 +86,81 @@ const Tag = styled(TagLabel)`
   }
 `;
 
-export default class Project extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      mx: 0,
-      my: 0,
-      bgx: 0.5,
-      bgy: 0.5,
-      bgc: 'transparent',
-    };
-    this.background = React.createRef();
-  }
+const Project = ({ className, data, scrollTop }) => {
+  const [state, setState] = useState({
+    mx: 0,
+    my: 0,
+    bgx: 0.5,
+    bgy: 0.5,
+    bgc: 'transparent',
+  });
 
-  componentDidMount() {
-    if (this.props.data.image) {
-      this.setState({ image: true }, () => {
-        this.parallax.call(this, true);
-        window.addEventListener('scroll', this.parallax.bind(this));
-        window.addEventListener('resize', this.parallax.bind(this));
-      });
-    }
-  }
+  const background = useRef(null);
 
   /**
    * parallax
    */
-  parallax() {
+  const parallax = () => {
     // the background and position
-    const target = this.background.current;
-    const targetPos = target.getBoundingClientRect().top;
+    const target = background.current;
 
-    // distance to travel
-    const dy = window.innerHeight;
-    const size = target.offsetHeight;
+    if (target) {
+      const targetPos = target.getBoundingClientRect().top;
 
-    // prevent unnecessary state changes
-    if ((targetPos + target.offsetHeight) > 0 && (targetPos - target.offsetHeight) < dy) {
+      // distance to travel
+      const dy = window.innerHeight;
+      const size = target.offsetHeight;
+
+      // prevent unnecessary state changes
+      if ((targetPos + target.offsetHeight) > 0 && (targetPos - target.offsetHeight) < dy) {
       // set the background transform to the
       // negative value of the relative
       // position of the image in the viewport
-      const bgy = -1 * size * ((targetPos) / (dy - size));
-      this.setState({ bgy });
+        const bgy = -1 * size * ((targetPos) / (dy - size));
+        setState({ ...state, bgy });
+      }
     }
-  }
+  };
 
-  /**
-   * Set the mouse position in state
-   * @param {MouseEvent} e The mouse event
-   */
-  mouse(e) {
-    const mxRaw = e.clientX;
-    const myRaw = e.clientY;
+  useEffect(() => {
+    if (data.image) {
+      setState({ ...state, image: true });
+      parallax();
+    }
+  }, []);
 
-    const mx = mxRaw / window.innerWidth;
-    const my = myRaw / window.innerHeight;
+  useEffect(() => {
+    parallax();
+  }, [scrollTop]);
 
-    const size = 14;
+  const {
+    bgx, bgy, image,
+  } = state;
 
-    const bgx = size * (2 * mx - 1);
-    const bgy = size * (2 * my - 1);
+  return (
+    <StyledProject className={className}>
+      {image ? <Image ref={background}>
+        <Background
+          style={{
+            backgroundImage: `url(${data.image})`,
+            transform: `translate(${bgx}px, ${bgy}px)`,
+          }} />
+      </Image> : ''}
 
-    this.setState({
-      mx,
-      my,
-      bgx,
-      bgy,
-    });
-  }
+      <ProjectText>
+        <h3>{data.title} <a href={data.url}>View</a></h3>
+        <Description>{data.description}</Description>
+        <TagList>
+          <TagLabel>Technologies:</TagLabel>
+          {data.tags.map((item, index) => (
+          <Tag key={index} background={() => {
+            const col = technologies.find(item2 => item2.name === item);
+            return col !== undefined ? col.colour : '#bbb';
+          }}>{item}</Tag>
+          ))}</TagList>
+      </ProjectText>
+    </StyledProject>
+  );
+};
 
-  render() {
-    const {
-      bgx, bgy, image,
-    } = this.state;
-    const { data } = this.props;
-    return (
-      <StyledProject className={this.props.className}>
-        {image ? <Image ref={this.background}>
-          <Background
-            style={{
-              backgroundImage: `url(${data.image})`,
-              transform: `translate(${bgx}px, ${bgy}px)`,
-            }} />
-        </Image> : ''}
-
-        <ProjectText>
-          <h3>{data.title} <a href={data.url}>View</a></h3>
-          <Description>{data.description}</Description>
-          <TagList>
-            <TagLabel>Technologies:</TagLabel>
-            {data.tags.map((item, index) => (
-            <Tag key={index} background={() => {
-              const col = technologies.find(item2 => item2.name === item);
-              return col !== undefined ? col.colour : '#bbb';
-            }}>{item}</Tag>
-            ))}</TagList>
-        </ProjectText>
-      </StyledProject>
-    );
-  }
-}
+export default Project;

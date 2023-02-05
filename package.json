@@ -3,49 +3,50 @@
   "author": "Charles Ojukwu",
   "version": "1.0.0",
   "description": "Personal Portfolio",
-  "main": "main.js",
-  "devDependencies": {
-    "autoprefixer": "^8.5.1",
-    "@babel/core": "^7.5.5",
-    "@babel/preset-env": "^7.5.5",
-    "@babel/preset-react": "^7.0.0",
-    "babel-loader": "^8.0.6",
-    "css-loader": "^0.28.11",
-    "eslint": "^5.9.0",
-    "eslint-config-airbnb": "^17.1.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-jsx-a11y": "^6.1.2",
-    "eslint-plugin-react": "^7.14.3",
-    "mini-css-extract-plugin": "^0.4.0",
-    "node-sass": "^4.9.0",
-    "postcss-loader": "^2.1.5",
-    "sass-loader": "^7.0.1",
-    "style-loader": "^0.21.0",
-    "webpack": "^4.39.1",
-    "webpack-cli": "^3.3.6",
-    "webpack-dev-server": "^3.7.2"
-  },
-  "dependencies": {
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "styled-components": "^4.3.2",
-    "@babel/polyfill": "^7.2.5"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --mode development",
-    "build": "webpack --mode production --progress",
-    "dev": "webpack --mode development --progress",
-    "watch": "webpack --mode development --progress --watch"
-  },
+  "main": "src/index.tsx",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cojdev/cojdev.github.io.git"
   },
   "keywords": [],
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/cojdev/cojdev.github.io/issues"
   },
-  "homepage": "https://cojdev.github.io"
+  "homepage": "https://cojdev.github.io",
+  "scripts": {
+    "start": "webpack-dev-server --mode development",
+    "build": "webpack --mode production --progress",
+    "dev": "webpack --mode development --progress",
+    "watch": "webpack --mode development --progress --watch"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.14.0",
+    "@typescript-eslint/parser": "^5.14.0",
+    "eslint": "^8.10.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript": "^16.1.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.29.3",
+    "prettier": "^2.5.1",
+    "ts-loader": "^9.2.7",
+    "typescript": "^4.6.2",
+    "webpack": "^5.70.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.7.4"
+  },
+  "dependencies": {
+    "@types/react": "^17.0.39",
+    "@types/react-dom": "^17.0.13",
+    "@types/styled-components": "^5.1.25",
+    "polished": "^4.2.2",
+    "prettier": "^2.0.5",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-feather": "^2.0.10",
+    "styled-components": "^4.3.2",
+    "tslib": "^2.3.1"
+  }
 }

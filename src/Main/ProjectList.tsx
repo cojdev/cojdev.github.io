@@ -12,15 +12,13 @@ const StyledProjectList = styled.ul`
 `;
 
 const ProjectList = ({ data, scrollTop }) => {
-  const projects = data.filter(item => item.hidden !== true).map((item, index) => (
-    <Project key={index} data={item} scrollTop={scrollTop} />
-  ));
+  const projects = data
+    .filter((item) => item.hidden !== true)
+    .map((item, index) => (
+      <Project key={index} data={item} scrollTop={scrollTop} />
+    ));
 
-  return (
-    <StyledProjectList>
-      {projects}
-    </StyledProjectList>
-  );
+  return <StyledProjectList>{projects}</StyledProjectList>;
 };
 
 export default ProjectList;

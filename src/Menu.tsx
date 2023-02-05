@@ -26,14 +26,10 @@ const MenuList = styled.ul`
   margin: 0;
   font-size: 24px;
   height: 100%;
-  box-shadow:
-    0 2px 3px rgba(0,0,0,0.1),
-    0 2px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 2px 12px rgba(0, 0, 0, 0.1);
 `;
 
-const MenuItem = styled.li`
-  
-`;
+const MenuItem = styled.li``;
 
 const Menu = () => {
   const [visible, setVisible] = useState(false);
@@ -52,15 +48,15 @@ const Menu = () => {
   });
   const items = social.map((item, index) => (
     <MenuItem key={index}>
-    <a href={item.url}><i className={item.class}></i></a>
-  </MenuItem>
+      <a href={item.url}>
+        <i className={item.class}></i>
+      </a>
+    </MenuItem>
   ));
 
   return (
     <MenuWrapper visible={visible}>
-      <MenuList>
-        {items}
-      </MenuList>
+      <MenuList>{items}</MenuList>
     </MenuWrapper>
   );
 };

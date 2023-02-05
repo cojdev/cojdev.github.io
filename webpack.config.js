@@ -1,28 +1,35 @@
 const path = require('path');
 
 module.exports = {
-  entry: './src/js/index.jsx',
+  entry: './src/index.tsx',
 
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'js'),
-    publicPath: 'js',
+    publicPath: '/js',
   },
 
   devtool: 'source-map',
 
   module: {
-    rules: [{
-      test: /\.(js|jsx)$/,
-      exclude: /node_modules/,
-      use: {
-        loader: 'babel-loader',
+    rules: [
+      {
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'ts-loader',
+        },
       },
-    },
     ],
   },
 
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.ts', '.tsx', '.js'],
+  },
+
+  devServer: {
+    static: {
+      directory: path.join(__dirname, '.'),
+    },
   },
 };

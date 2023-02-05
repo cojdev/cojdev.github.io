@@ -1,0 +1,63 @@
+{
+    "env": {
+      "browser": true,
+      "es6": true
+    },
+    "settings": {
+      "import/resolver": {
+        "node": {
+          "extensions": [
+            ".ts",
+            ".tsx",
+            ".js"
+          ]
+        }
+      }
+    },
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "project": "./tsconfig.json"
+    },
+    "ignorePatterns": [
+      "node_modules/**/*.js",
+      "docs/**/*.js",
+      "webpack.config.js"
+    ],
+    "plugins": [
+      "@typescript-eslint",
+      "prettier"
+    ],
+    "extends": [
+      "airbnb-base",
+      "airbnb-typescript/base",
+      "plugin:react/recommended",
+      "prettier"
+    ],
+    "rules": {
+      "prettier/prettier": "error",
+      "no-plusplus": "off",
+      "no-bitwise": "off",
+      "no-mixed-operators": "off",
+      "class-methods-use-this": "off",
+      "no-console": "warn",
+      "func-names": "off",
+      "linebreak-style": "off",
+      "no-param-reassign": [
+        "error",
+        {
+          "props": false
+        }
+      ],
+      "react/prop-types": "off",
+      "react/no-unescaped-entities": [
+        "error",
+        {
+          "forbid": [
+            ">",
+            "}"
+          ]
+        }
+      ]
+    }
+  }

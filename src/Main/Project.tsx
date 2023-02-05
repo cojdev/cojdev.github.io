@@ -166,7 +166,7 @@ const Project = ({
         </h3>
         <Description>{data.description}</Description>
         <TagList>
-          <TagLabel>Technologdies:</TagLabel>
+          <TagLabel>Technologies:</TagLabel>
           {data.tags.map((item: {}, index: React.Key) => (
             <Tag
               key={index}

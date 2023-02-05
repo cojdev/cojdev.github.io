@@ -68,7 +68,7 @@ const TagLabel = styled.li`
   font-weight: 700;
 `;
 
-const Tag = styled(TagLabel)`
+const Tag = styled(TagLabel)<{ background: string }>`
   :before {
     content: '';
     display: inline-block;
@@ -84,13 +84,22 @@ const Tag = styled(TagLabel)`
   }
 `;
 
-const Project = ({ className, data, scrollTop }) => {
+const Project = ({
+  className,
+  data,
+  scrollTop,
+}: {
+  className?: string;
+  data: any;
+  scrollTop: number;
+}) => {
   const [state, setState] = useState({
     mx: 0,
     my: 0,
     bgx: 0.5,
     bgy: 0.5,
     bgc: 'transparent',
+    image: false,
   });
 
   const background = useRef(null);
@@ -157,14 +166,14 @@ const Project = ({ className, data, scrollTop }) => {
         </h3>
         <Description>{data.description}</Description>
         <TagList>
-          <TagLabel>Technologies:</TagLabel>
-          {data.tags.map((item, index) => (
+          <TagLabel>Technologdies:</TagLabel>
+          {data.tags.map((item: {}, index: React.Key) => (
             <Tag
               key={index}
-              background={() => {
+              background={(() => {
                 const col = technologies.find((item2) => item2.name === item);
                 return col !== undefined ? col.colour : '#bbb';
-              }}>
+              })()}>
               {item}
             </Tag>
           ))}

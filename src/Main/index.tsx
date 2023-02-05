@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, SyntheticEvent } from 'react';
 import styled from 'styled-components';
 
 import ProjectList from './ProjectList';
@@ -37,8 +37,8 @@ const Main = () => {
     setScrollTop(window.pageYOffset);
   };
 
-  const mainListener = (e) => {
-    setScrollTop(e.target.scrollTop);
+  const mainListener = (e: SyntheticEvent<HTMLElement>) => {
+    setScrollTop(e.currentTarget.scrollTop);
   };
 
   useEffect(() => {
@@ -70,7 +70,7 @@ const Main = () => {
         <h2>
           <span>Commercial Work</span>
         </h2>
-        <ProjectList data={projects.commercial} />
+        <ProjectList data={projects.commercial} scrollTop={scrollTop} />
       </StyledMainInner>
     </StyledMain>
   );

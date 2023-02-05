@@ -5,7 +5,6 @@ import styled, { createGlobalStyle } from 'styled-components';
 import Sidebar from './Sidebar';
 import Main from './Main';
 import theme from './common/theme';
-import Menu from './Menu';
 
 const GlobalStyles = createGlobalStyle`
   *, *::before, *::after {
@@ -99,7 +98,6 @@ const App = () => (
     <GlobalStyles />
     <Sidebar />
     <Main />
-    <Menu />
   </StyledWrapper>
 );
 

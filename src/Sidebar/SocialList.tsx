@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import siteData from '../common/siteData';
+import * as Icon from 'react-feather';
+import { location } from '../common/siteData';
 
 const StyledSocialList = styled.ul`
   list-style: none;
@@ -11,27 +12,38 @@ const StyledSocialList = styled.ul`
 const Item = styled.li`
   display: inline-block;
   margin-right: 1ch;
+  vertical-align: middle;
+
+  svg {
+    vertical-align: middle;
+  }
 
   a {
     color: #e14;
   }
 `;
 
-const SocialList = ({ data }) => {
-  const items = data.map((item, index) => (
-    <Item key={index}>
-      <a href={item.url}>
-        <i className={item.class}></i>
-      </a>
-    </Item>
-  ));
+const SocialList = ({ data }: { data: { url: string; icon: any }[] }) => {
+  const items = data.map(
+    (item: { url: string; icon: any }, index: React.Key) => {
+      const SocialIcon = item.icon;
+
+      return (
+        <Item key={index}>
+          <a href={item.url}>
+            <SocialIcon />
+          </a>
+        </Item>
+      );
+    }
+  );
 
   return (
     <>
       <StyledSocialList>
         {items}
         <Item>
-          <i className="fas fa-map-marker-alt"></i> {siteData.profile.location}
+          <Icon.MapPin /> {location}
         </Item>
       </StyledSocialList>
     </>

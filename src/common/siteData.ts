@@ -1,9 +1,11 @@
+import * as Icon from 'react-feather';
+
 const siteData = {
   profile: {
     name: 'Charles Ojukwu',
-    role: 'Full Stack Developer',
-    location: 'London, UK',
+    role: 'Full Stack Engineer',
   },
+  location: 'London, UK',
 
   projects: {
     commercial: [
@@ -80,17 +82,17 @@ const siteData = {
     {
       name: 'Email',
       url: 'mailto:charles.ojukwu1@gmail.com',
-      class: 'far fa-envelope',
+      icon: Icon.Mail,
     },
     {
       name: 'Github',
       url: 'https://github.com/cojdev',
-      class: 'fab fa-github',
+      icon: Icon.GitHub,
     },
     {
       name: 'Codepen',
       url: 'https://codepen.io/cojdev',
-      class: 'fab fa-codepen',
+      icon: Icon.Codepen,
     },
   ],
 

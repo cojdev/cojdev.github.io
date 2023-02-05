@@ -17,7 +17,6 @@ const StyledMain = styled.main`
   }
 
   @media screen and (min-width: ${theme.breakpoints.m}) {
-    
   }
 `;
 
@@ -62,14 +61,18 @@ const Main = () => {
   }, [mounted, isMobile]);
 
   return (
-      <StyledMain ref={mainElem}>
-        <StyledMainInner>
-          <h2><span>Personal Projects</span></h2>
-          <ProjectList data={projects.personal} scrollTop={scrollTop} />
-          <h2><span>Commercial Work</span></h2>
-          <ProjectList data={projects.commercial} />
-        </StyledMainInner>
-      </StyledMain>
+    <StyledMain ref={mainElem}>
+      <StyledMainInner>
+        <h2>
+          <span>Personal Projects</span>
+        </h2>
+        <ProjectList data={projects.personal} scrollTop={scrollTop} />
+        <h2>
+          <span>Commercial Work</span>
+        </h2>
+        <ProjectList data={projects.commercial} />
+      </StyledMainInner>
+    </StyledMain>
   );
 };
 

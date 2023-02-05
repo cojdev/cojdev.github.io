@@ -1,5 +1,4 @@
 const siteData = {
-
   profile: {
     name: 'Charles Ojukwu',
     role: 'Full Stack Developer',
@@ -7,7 +6,6 @@ const siteData = {
   },
 
   projects: {
-
     commercial: [
       {
         title: 'The Nutrition Collective',
@@ -17,21 +15,24 @@ const siteData = {
       },
       {
         title: 'Online Post Production',
-        description: 'Website development for London based Post Production House',
+        description:
+          'Website development for London based Post Production House',
         url: 'https://onlinepp.co.uk',
         tags: ['React', 'Sass', 'Silverstripe', 'MySQL'],
         date: '2018',
       },
       {
         title: 'C-Squared Sales',
-        description: 'Website design and development for a Kent based HVAC Engineering company.',
+        description:
+          'Website design and development for a Kent based HVAC Engineering company.',
         url: 'https://c2sales.co.uk',
         tags: ['WordPress', 'Sass', 'Gitlab CI', 'MySQL'],
         date: '2017',
       },
       {
         title: 'Air Handling',
-        description: 'Website design and development for an Air Handling distributor.',
+        description:
+          'Website design and development for an Air Handling distributor.',
         url: 'https://air-handling.co.uk',
         tags: ['PHP', 'Sass', 'MySQL'],
         date: '2017',
@@ -46,7 +47,8 @@ const siteData = {
         date: '2015',
         image: 'img/lowpoly.png',
         url: '/lowpoly',
-      }, {
+      },
+      {
         title: 'World Cup Predictor',
         description: 'A predictor app for the 2018 World Cup.',
         tags: ['React', 'ES6', 'Sass'],
@@ -160,10 +162,4 @@ const siteData = {
 };
 
 export default siteData;
-export const {
-  projects,
-  social,
-  location,
-  skills,
-  technologies,
-} = siteData;
+export const { projects, social, location, skills, technologies } = siteData;

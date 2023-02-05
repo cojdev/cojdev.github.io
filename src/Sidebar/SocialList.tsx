@@ -20,7 +20,9 @@ const Item = styled.li`
 const SocialList = ({ data }) => {
   const items = data.map((item, index) => (
     <Item key={index}>
-      <a href={item.url}><i className={item.class}></i></a>
+      <a href={item.url}>
+        <i className={item.class}></i>
+      </a>
     </Item>
   ));
 
@@ -28,7 +30,9 @@ const SocialList = ({ data }) => {
     <>
       <StyledSocialList>
         {items}
-        <Item><i className="fas fa-map-marker-alt"></i> {siteData.profile.location}</Item>
+        <Item>
+          <i className="fas fa-map-marker-alt"></i> {siteData.profile.location}
+        </Item>
       </StyledSocialList>
     </>
   );

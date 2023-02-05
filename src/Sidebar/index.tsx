@@ -32,12 +32,11 @@ const Sidebar = () => (
       <h1>{siteData.profile.name}</h1>
       <SubTitle>{siteData.profile.role}</SubTitle>
       <p>
-        London based full stack developer working with React and
-        NodeJs and experience using PHP, WordPress, and Vue.
+        London based full stack developer working with React and NodeJs and
+        experience using PHP, WordPress, and Vue.
       </p>
       <SocialList data={social} />
     </div>
-
   </StyledSidebar>
 );
 

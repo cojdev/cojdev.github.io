@@ -10,12 +10,6 @@ const siteData = {
   projects: {
     commercial: [
       {
-        title: 'The Nutrition Collective',
-        description: 'Landing Page for a health and wellness community.',
-        url: 'https://nutritioncollective.co.uk',
-        tags: ['Sass', 'Gatsby', 'Netlify CMS'],
-      },
-      {
         title: 'Online Post Production',
         description:
           'Website development for London based Post Production House',

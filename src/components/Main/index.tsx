@@ -1,29 +1,10 @@
 import React, { useState, useEffect, useRef, SyntheticEvent } from 'react';
-import styled from 'styled-components';
 
-import ProjectList from './ProjectList';
-import { projects } from '../common/siteData';
-import theme from '../common/theme';
-import useMedia from '../hooks/useMedia';
-
-const StyledMain = styled.main`
-  display: block;
-  padding: 2rem;
-  width: 100%;
-
-  @media screen and (min-width: ${theme.breakpoints.s}) {
-    overflow: auto;
-    height: 100vh;
-  }
-
-  @media screen and (min-width: ${theme.breakpoints.m}) {
-  }
-`;
-
-const StyledMainInner = styled.div`
-  display: block;
-  max-width: 1200px;
-`;
+import ProjectList from '../ProjectList';
+import { projects } from '../../common/siteData';
+import theme from '../../common/theme';
+import useMedia from '../../hooks/useMedia';
+import { StyledMain, StyledMainInner } from './Main.styles';
 
 const Main = () => {
   const mainElem = useRef(null);
@@ -66,11 +47,11 @@ const Main = () => {
         <h2>
           <span>Personal Projects</span>
         </h2>
-        <ProjectList data={projects.personal} scrollTop={scrollTop} />
+        <ProjectList projects={projects.personal} scrollTop={scrollTop} />
         <h2>
           <span>Commercial Work</span>
         </h2>
-        <ProjectList data={projects.commercial} scrollTop={scrollTop} />
+        <ProjectList projects={projects.commercial} scrollTop={scrollTop} />
       </StyledMainInner>
     </StyledMain>
   );

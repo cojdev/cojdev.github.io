@@ -26,12 +26,14 @@
     ],
     "plugins": [
       "@typescript-eslint",
-      "prettier"
+      "prettier",
+      "jsx-a11y"
     ],
     "extends": [
       "airbnb-base",
       "airbnb-typescript/base",
       "plugin:react/recommended",
+      "plugin:jsx-a11y/recommended",
       "prettier"
     ],
     "rules": {

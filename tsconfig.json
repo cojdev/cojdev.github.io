@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "outDir": "./docs",
+    "outDir": "./js",
     "rootDir": "./src",
     "noImplicitAny": true,
     "moduleResolution": "node",

@@ -1,12 +1,7 @@
-import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
+import theme from '../common/theme';
 
-// components
-import Sidebar from './Sidebar';
-import Main from './Main';
-import theme from './common/theme';
-
-const GlobalStyles = createGlobalStyle`
+export const GlobalStyles = createGlobalStyle`
   *, *::before, *::after {
     box-sizing: border-box;
   }
@@ -86,19 +81,9 @@ const GlobalStyles = createGlobalStyle`
   }
 `;
 
-const StyledWrapper = styled.div`
+export const StyledWrapper = styled.div`
   @media screen and (min-width: ${theme.breakpoints.s}) {
     display: flex;
     flex-direction: row;
   }
 `;
-
-const App = () => (
-  <StyledWrapper>
-    <GlobalStyles />
-    <Sidebar />
-    <Main />
-  </StyledWrapper>
-);
-
-export default App;

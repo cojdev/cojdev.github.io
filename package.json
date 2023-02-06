@@ -17,7 +17,9 @@
     "start": "webpack-dev-server --mode development",
     "build": "webpack --mode production --progress",
     "dev": "webpack --mode development --progress",
-    "watch": "webpack --mode development --progress --watch"
+    "watch": "webpack --mode development --progress --watch",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx src",
+    "lint:fix": "eslint --fix --ext .js,.jsx,.ts,.tsx src"
   },
   "license": "ISC",
   "devDependencies": {
@@ -28,6 +30,7 @@
     "eslint-config-airbnb-typescript": "^16.1.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.29.3",
     "prettier": "^2.5.1",

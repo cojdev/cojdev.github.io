@@ -1,6 +1,47 @@
 import * as Icon from 'react-feather';
 
-const siteData = {
+export type Project = {
+  title: string;
+  description: string;
+  url?: string;
+  tags: string[];
+  date: string;
+  image?: string;
+  hidden?: boolean;
+};
+
+export type Skill = {
+  name: string;
+  items: string[];
+};
+
+export type Technology = {
+  name: string;
+  colour: string;
+};
+
+export type Social = {
+  name: string;
+  url: string;
+  icon: React.ComponentType;
+};
+
+export type SiteData = {
+  profile: {
+    name: string;
+    role: string;
+  };
+  location: string;
+  projects: {
+    commercial: Project[];
+    personal: Project[];
+  };
+  social: Social[];
+  skills: Skill[];
+  technologies: Technology[];
+};
+
+const siteData: SiteData = {
   profile: {
     name: 'Charles Ojukwu',
     role: 'Full Stack Engineer',
